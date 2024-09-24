@@ -195,3 +195,5 @@ shape_visual.material.color = {1,1,1};
 shape_visual.texture.load_and_initialize_texture_2d_on_gpu(project::path+"assets/squirrel.jpg");
 ```
 - Note: The variable project::path is automatically filled in the beginning of the program and tries to adapt the relative path to find the assets directory. If you omit it, you need to run your executable program from the root directory (where you can find the assets/ and shaders/ directory).
+
+![Example](01introductionsol.gif)
