@@ -7,7 +7,7 @@ The first introductory scene is available in this directory
 
 Once executed, you should observe a basic scene as seen below with rotating cylinder, cube, and curve (some details may vary).
 
-[Example](01introduction.gif)
+![Example](01introduction.gif)
 
 - Note that the source code of the scene is fully described in the files src/main.cpp and src/scene.cpp (and src/scene.hpp). 
 - main.cpp file contains common elements through all the exercises (general set up of the scene, animation loop, basic handling of the keyboard/mouse input). Usually you won't have to edit the main.cpp.
