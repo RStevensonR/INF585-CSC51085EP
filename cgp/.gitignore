@@ -1,7 +1,0 @@
-build/
-*.pdb
-imgui.ini
-*.exe
-.vs/
-*.o
-**/.DS_Store
