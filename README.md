@@ -11,7 +11,7 @@ cd INF585-CSC51085EP/
 git submodule init
 git submodule update
 ```
-Note: Do not use the "Code -> Download ZIP" option from the GitHub GUI as you won't get the CGP library as submodule with the code.
+Note: Do not use the "Code -> Download ZIP" option from the GitHub GUI as you won't get the CGP library as submodule with the code. If you use it, you have to download the library manually (source link at the end).
 ## Compilation
 
 Scenes are in a directory `INF585-CSC51085EP/0*_*/`
@@ -50,7 +50,7 @@ export LIBRARY_PATH=/opt/homebrew/lib
 - Alternatively, a pre-compiled glfw can be used without installation. To activate it, open the CMakeLists.txt file and set the option MACOS_GLFW_PRECOMPILED to ON. You may need to explicitely allow the mac to use the library if security triggers an alert.
 
 Windows:
-The simplest way is the use of [Visual Studio](https://visualstudio.microsoft.com/es/downloads/) with the scripts/windows_cmake_visual.bat generating a visual studio project.
+- The simplest way is the use of [Visual Studio](https://visualstudio.microsoft.com/es/downloads/) with the `scripts/windows_cmake_visual.bat` generating a visual studio project.
 
 ## IDE
 
