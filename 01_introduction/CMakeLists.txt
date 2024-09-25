@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.8)
 
 # Relative path to the CGP library
 # => You may need to adapt this directory to your relative path in the case you move your directory
-set(PATH_TO_CGP "../../cgp/library/" CACHE PATH "Relative path to CGP library location") 
+set(PATH_TO_CGP "../cgp/library/" CACHE PATH "Relative path to CGP library location") 
 
 # Set this value to ON if you want to use the precompiled GLFW Library
 OPTION(MACOS_GLFW_PRECOMPILED "Use precompiled library for GLFW on MacOS" OFF)
