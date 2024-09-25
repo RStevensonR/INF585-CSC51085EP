@@ -15,9 +15,6 @@ using cgp::vec3;
 
 struct gui_parameters {
 	bool display_frame = true;
-#ifdef SOLUTION
-	bool display_wireframe = false;
-#endif
 };
 
 // The structure of the custom scene
@@ -47,14 +44,6 @@ struct scene_structure : cgp::scene_inputs_generic {
 
 	curve_drawable curve;    // A set of vertices displayed as a curve
 
-#ifdef SOLUTION
-	mesh_drawable sphere;
-
-	mesh shape;
-	numarray<vec3> initial_position;
-	mesh_drawable shape_visual;
-#endif
-
 	// ****************************** //
 	// Functions
 	// ****************************** //
@@ -69,9 +58,6 @@ struct scene_structure : cgp::scene_inputs_generic {
 	void keyboard_event();
 	void idle_frame();
 
-#ifdef SOLUTION
-	void evolve_shape(float time);
-#endif
 };
 
 
