@@ -33,10 +33,10 @@ So far, each sphere follows a pure parabola trajectory without taking into accou
 [Interactive View](https://imagecomputing.net/course/2023_2024/inf585/lab/content/02_procedural_animation/b_sphere_bounce/web/index.html)
 
 
-Extra (**IT IS NOT MANDATORY**):
+Extra (**THIS PART IT IS NOT MANDATORY**):
 - In the previous example, the collision is explicitly displayed by some shadow-looking effect.
   - How could you model such effect ?
-  - Try to implement it if you have time - otherwise move to another exercise (**AGAIN, IT IS NOT MANDATORY**).
+  - Try to implement it if you have time - otherwise move to another exercise (**AGAIN, THIS PART IT IS NOT MANDATORY**).
 
 ![Example_2](02abouncingsolshadow.gif)
 
