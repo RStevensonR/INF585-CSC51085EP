@@ -197,3 +197,11 @@ shape_visual.texture.load_and_initialize_texture_2d_on_gpu(project::path+"assets
 - Note: The variable project::path is automatically filled in the beginning of the program and tries to adapt the relative path to find the assets directory. If you omit it, you need to run your executable program from the root directory (where you can find the assets/ and shaders/ directory).
 
 ![Example](01introductionsol.gif)
+
+## Unity Video
+
+The following sharing link contains the video explaning how to achieve similar project with Unity.
+It is not a detailed introduction to Unity, but it will contain information about all components used in the project.
+Please feel free to ask GONG Xianjin (Xavier) for help if further explanation or problems related to Unity is required.
+(IMPORTANT: this is an extended part, it will not be graded)
+https://drive.google.com/file/d/1bLKTDZgEdp89l5tcubnl_a9bT0Wcrlpu/view?usp=sharing
