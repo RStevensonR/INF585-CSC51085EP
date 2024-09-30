@@ -4,12 +4,12 @@
 
 This code model procedurally the trajectory of a set of spheres falling under gravity.
 
-- Make sure you can compile and execute the code.
+- Make sure you can compile and execute the code.\
   Note: This is another source code, the procedure to run CMake and parameterization of your IDE has to be redone.
 
 The directory particles contains the structure associated to the particle model (position, velocity, time of birth, etc.). The general calls for the creation and display of the particles is defined in the file `scene.cpp`, in the function `display_frame()`.
 
-- Try to find the initial velocity of the particles ?
+- Try to find the initial velocity of the particles ?\
   Note: `rand_uniform(a,b)` is a function generating a uniform random float value in the interval \[a,b[\.
 - Change the initial speed such that particles have a varying yy component in their initial speed.
 
