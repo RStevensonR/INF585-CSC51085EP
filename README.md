@@ -74,4 +74,5 @@ You may use the provided scripts (in directory scripts/) and configuration files
 
 - [Source code CGP Library](https://github.com/drohmer/cgp)
 - [CGP Library](https://graphicscomputing.fr/cgp/documentation/01_general/index.html) 
+- [C++ Basic exercise (FR) *Working on the EN version](https://imagecomputing.net/course/2023_2024/inf443/lab/content/02/b_cpp_bases/index.html)
 
