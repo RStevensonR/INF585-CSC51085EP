@@ -3,6 +3,6 @@
 */src/*.d
 */*/src/*.o
 */*/src/*.d
-*/*/*_*
+*/*/0*_*
 0*/imgui.ini
 0*/*/imgui.ini
