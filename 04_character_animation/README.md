@@ -168,7 +168,7 @@ The last effect is to implement an Inverse Kinematics (IK) over a subset of the 
 
 The IK parameters are stored in `effect_ik_structure` describing the target joint, and the root joint of the kinematic chain. The objective position of the target joint is given as the sum of an initial position and an offset (that can be changed via the GUI). The function `effect_ik_start` pre-set the values of the objective position (current target joint position and zero offset).
 
-The objective is to code the function `effect_ik_compute` to implement an IK deformation on an arbitrary kinematic chain defined between joint_root_ik and joint_target, for instance using Fabrik.
+The objective is to code the function `effect_ik_compute` to implement an IK deformation on an arbitrary kinematic chain defined between joint_root_ik and joint_target, for instance using [Fabrik](http://www.andreasaristidou.com/FABRIK.html).
 
 Hints:
 - You may need to pre-store the set of joints and bones along the chain defined between `joint_root_ik` and `joint_target`.
