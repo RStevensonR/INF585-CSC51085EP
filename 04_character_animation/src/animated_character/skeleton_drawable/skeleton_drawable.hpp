@@ -48,13 +48,22 @@ void draw(skeleton_drawable const& skeleton, SCENE const& scene)
 	
 	if (skeleton.display_joint_sphere)
 	{
+		// cgp::mesh_drawable joint_sphere_temp = skeleton.joint_sphere;
+		// joint_sphere_temp.model.scaling = skeleton.size_sphere;
+		// for (size_t k = 0; k < N; ++k)
+		// {
+		// 	joint_sphere_temp.model.translation = skeleton.data[k].get_block_translation();
+		// 	draw(joint_sphere_temp, scene);
+		// }
 		cgp::mesh_drawable joint_sphere_temp = skeleton.joint_sphere;
 		joint_sphere_temp.model.scaling = skeleton.size_sphere;
 		for (size_t k = 0; k < N; ++k)
 		{
 			joint_sphere_temp.model.translation = skeleton.data[k].get_block_translation();
+			joint_sphere_temp.model.scaling = (0.2f + 0.8f * exp(-((float) k * k / (0.2 * N * N)))) * skeleton.size_sphere;
 			draw(joint_sphere_temp, scene);
 		}
+		joint_sphere_temp.model.scaling = skeleton.size_sphere;
 	}
 
 	
