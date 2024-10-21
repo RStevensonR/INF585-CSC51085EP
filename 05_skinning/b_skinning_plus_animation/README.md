@@ -1,17 +1,14 @@
-# Character Animation - Skeletal Animation
+# Skinning - Skeletal Animation
 
-> Path of the scene 04_character_animation
+> Path of the scene 05_skinning/b_skinning_plus_animation
 
 This code present a more advanced scene setup with pre-loaded character animation. Your objective will be to add additional effects on the animated skeleton, in order to represent: smooth transitions, interactive user control to make the character walk, force the orientation of the head, and force the position of specific joint using Inverse Kinematics.
 
 Once completed, your result should be similar to this [online version](https://imagecomputing.net/data/teaching/INF585/character_animation/web/no_soccer/index.html).
 
->[!NOTE]
-> The online version has skinning for character models but thats for the next session, for this week focus on the movement. SAME FOR THIS SESSION, DONT BOTHER WITH THE SKINNING, THATS FOR THE NEXT SESSION.
-
 ## Continuation with respect to lab 04_character_animation
 
-This code is complemented with what you have done with respect to character animation. In order to proceed, please finish the exercise of `04_character_animation` and `05_skinning/a_skinning`.
+This code is complemented with what you have done with respect to character animation. Before proceeding, it is advisable to finish first the exercises of `04_character_animation` and `05_skinning/a_skinning`.
 
 ### Applying LBS
 
