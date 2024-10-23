@@ -9,7 +9,7 @@ int skeleton_structure::size() const{
 
 // Compute the global joint frames from the local joint frames
 void skeleton_structure::update_joint_matrix_local_to_global() {
-    
+
     int const N = size();
     if(N==0){ return; }
     if(joint_matrix_global.size()!=N) {
@@ -39,7 +39,6 @@ void skeleton_structure::update_joint_matrix_global_to_local() {
         joint_matrix_local[k] = joint_matrix_global[parent_index[k]].inverse_assuming_rigid_transform() * joint_matrix_global[k];
     }
 }
-
 
 // Return the index of the children
 cgp::numarray<int> skeleton_structure::child(int joint_index) const {

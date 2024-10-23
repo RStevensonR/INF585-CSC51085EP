@@ -3,7 +3,6 @@
 using namespace cgp;
 
 
-
 numarray<numarray<float> > compute_skinning_weights_generic(cgp::mesh const& m, skeleton_structure const& skeleton, float power_factor) 
 {
 	currently_unused(power_factor);
@@ -40,7 +39,6 @@ numarray<numarray<float> > compute_skinning_weights_generic(cgp::mesh const& m, 
 	return weights;
 
 }
-
 
 
 numarray<numarray<float> > compute_skinning_weights_cylinder(cgp::mesh const& m, skeleton_structure const& skeleton, float power_factor)

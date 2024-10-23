@@ -4,10 +4,9 @@ using namespace cgp;
 
 
 
-
 void animated_model_structure::skinning_lbs()
 {
-    
+
     // ************************************************************** //
 	// TO DO: Compute the Linear Blend Skinning (LBS) deformation
 	// ...
