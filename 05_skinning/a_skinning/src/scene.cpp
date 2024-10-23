@@ -3,74 +3,7 @@
 using namespace cgp;
 
 
-#ifdef SOLUTION
-vec3 closest_point_on_segment(vec3 const& p, vec3 const& pa, vec3 const& pb)
-{
-	vec3 ab = pb-pa;
-	float Lab = norm(ab);
-	vec3 uab = ab/Lab;
 
-	float s = dot(p-pa, uab);
-	if(s<0) {
-		return pa;
-	}
-	if(s>Lab) {
-		return pb;
-	}
-
-	return pa + s*uab;
-}
-
-numarray<numarray<float> > compute_skinning_weights_generic(cgp::mesh const& m, skeleton_structure const& skeleton, float power_factor) {
-
-	int N_joint = skeleton.size();	
-	int N_vertex = m.position.size();
-	numarray<numarray<float> > weights;
-	weights.resize(N_vertex);
-
-	numarray<numarray<vec3> > seg_1;
-	numarray<numarray<vec3> > seg_2;
-		
-	seg_1.resize(N_joint);
-	seg_2.resize(N_joint);
-	for(int k=0; k<N_joint; ++k) {
-		numarray<int> idx_child = skeleton.child(k);
-		for(int kc=0; kc<idx_child.size(); ++kc){
-			seg_1[k].push_back(skeleton.joint_matrix_global_bind_pose[k].get_block_translation());
-			seg_2[k].push_back(skeleton.joint_matrix_global_bind_pose[idx_child[kc]].get_block_translation());
-		}
-	}
-
-	
-	for(int k=0; k<N_vertex; ++k) {
-		vec3 const& p = m.position[k];
-		weights[k].resize(N_joint);
-		for(int kj=0; kj<N_joint; ++kj) {
-			numarray<vec3> const& s1 = seg_1[kj]; 
-			numarray<vec3> const& s2 = seg_2[kj];
-
-			int N_child = s1.size();
-			weights[k][kj] = 5000.0f;
-			for(int kc=0; kc<N_child; ++kc) {
-				vec3 closest = closest_point_on_segment(p, s1[kc], s2[kc]);
-				float d = norm(p-closest);
-				weights[k][kj] = std::min(weights[k][kj], d);
-			}
-		}
-	}
-
-	for(int k=0; k<N_vertex; ++k) {
-
-		for(int kj=0; kj<N_joint; ++kj) {
-			weights[k][kj] = std::pow(1.0f/weights[k][kj], power_factor);
-		}
-		weights[k] = weights[k]/sum(weights[k]);
-
-	}
-
-	return weights;
-}
-#else
 numarray<numarray<float> > compute_skinning_weights_generic(cgp::mesh const& m, skeleton_structure const& skeleton, float power_factor) 
 {
 	currently_unused(power_factor);
@@ -106,7 +39,7 @@ numarray<numarray<float> > compute_skinning_weights_generic(cgp::mesh const& m, 
 	return weights;
 
 }
-#endif
+
 
 
 numarray<numarray<float> > compute_skinning_weights_cylinder(cgp::mesh const& m, skeleton_structure const& skeleton, float power_factor)
