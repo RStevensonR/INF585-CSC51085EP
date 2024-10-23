@@ -9,6 +9,7 @@ int skeleton_structure::size() const{
 
 // Compute the global joint frames from the local joint frames
 void skeleton_structure::update_joint_matrix_local_to_global() {
+    
     int const N = size();
     if(N==0){ return; }
     if(joint_matrix_global.size()!=N) {

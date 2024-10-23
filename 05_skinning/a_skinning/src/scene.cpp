@@ -18,6 +18,7 @@ numarray<numarray<float> > compute_skinning_weights_generic(cgp::mesh const& m, 
 	}
 	// at this stage, the skinning weights are all zeros
 
+
 	// ************************************************************** //
 	// TO DO: Compute some skinning weights for an arbitrary skeleton structure and a mesh in its bind pose.
 	// ...

@@ -22,6 +22,7 @@ skeleton_drawable::skeleton_drawable(skeleton_structure const& skeleton)
     segments.initialize_data_on_gpu(edges);
     joint_frame.initialize_data_on_gpu(mesh_primitive_frame());
     joint_sphere.initialize_data_on_gpu(mesh_primitive_sphere());
+
 }
 
 void skeleton_drawable::update(skeleton_structure const& skeleton){
@@ -37,12 +38,15 @@ void skeleton_drawable::update(skeleton_structure const& skeleton){
     }
 
     segments.vbo_position.update(edges);
+
 }
 
 void skeleton_drawable::clear()
 {
+    
     segments.clear();
     joint_frame.clear();
     joint_sphere.clear();
     data.clear();
+
 }
