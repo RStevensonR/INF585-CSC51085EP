@@ -38,7 +38,7 @@ $E = \sum_{i=0}^{N-1} \parallel q_i - (1 / \mathcal{N}_i) \sum_{j \in \mathcal{N
 - $N$: number of vertices
 - $p_i$: Initial vertices position
 - $\mathcal{N}_i$: 1-ring of vertex i. $|\mathcal{N}_i|$ the size of the 1-ring.
-- $\delta(p_i) = p_i - 1/$$|\mathcal{N}_i|$$ \sum_{j \in \mathcal{N}_i} p_j$
+- $\delta(p_i) = p_i - 1/$ $|\mathcal{N}_i|$ $ \sum_{j \in \mathcal{N}_i} p_j$
 - $C$: Set of constrained vertex
 - $c_i$: Position of the constrained vertex
 - $\omega_i$: Weight associated to the constrained vertex $i \in C$
