@@ -31,9 +31,9 @@ Another mode "Select constraint" is proposed where these constraints can be modi
 
 The deformation of the surface can be expressed as the set of position $q_i$ minimizing the following energy.
 
-$E = \sum_{i=0}^{N-1} \parallel \delta(q_i) - \delta(p_i) \parallel^2 + \sum_{i \in C} \omega_i \parallel q_i - c_i \parallel^2$
+$E = \sum_{i=0}^{N-1} \parallel \delta(q_i) - \delta(p_i) \parallel^2 + \sum_{i \in \mathcal{N}_i} \omega_i \parallel q_i - c_i \parallel^2$
 
-$E = \sum_{i=0}^{N-1} \parallel q_i - \frac{1}{\mathcal{N}_i}$ \sum_{j \in \mathcal{N}_i} - \delta(p_i) \parallel^2 + \sum_{i \in C} \omega_i \parallel q_i - c_i \parallel^2
+$E = \sum_{i=0}^{N-1} \parallel q_i - \frac{1}{\mathcal{N}_i} \sum_{j \in \mathcal{N}_i} - \delta(p_i) \parallel^2 + \sum_{i \in C} \omega_i \parallel q_i - c_i \parallel^2$
 
 - $N$: number of vertices
 - $p_i$: Initial vertices position
