@@ -77,8 +77,10 @@ struct scene_structure : cgp::scene_inputs_generic {
 	void display_frame(); // The frame display to be called within the animation loop
 	void display_gui();   // The display of the GUI, also called within the animation loop
 
+
 	void display_constraints();
 	void display_selection_rectangle();
+
 
 	void mouse_move_event();
 	void mouse_click_event();
