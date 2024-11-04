@@ -2,6 +2,7 @@
 
 using namespace cgp;
 
+
 void build_matrix(linear_system_structure& linear_system, constraint_structure const& constraints, mesh const& shape, numarray<vec3> const& initial_position, numarray<numarray<int> > const& one_ring)
 {
     // TO DO: Build and fill the matrix M and the rhs (M q_x/y/z = rhs_x/y/z)
