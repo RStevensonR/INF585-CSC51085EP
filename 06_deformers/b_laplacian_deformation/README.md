@@ -31,16 +31,14 @@ Another mode "Select constraint" is proposed where these constraints can be modi
 
 The deformation of the surface can be expressed as the set of position $q_i$ minimizing the following energy.
 
-$E = \sum_{i=0}^{N-1} \parallel \delta(q_i) - \delta(p_i) \parallel^2 + \sum_{i \in C} \omega_i \parallel q_i - c_i \parallel^2$
+$E = \sum_{i=0}^{N-1} \parallel \delta(q_i) \sum_{j \in \mathcal{N}_i} - \delta(p_i) \parallel^2 + \sum_{i \in C} \omega_i \parallel q_i - c_i \parallel^2$
 
 $E = \sum_{i=0}^{N-1} \parallel q_i - (1 / \mathcal{N}_i) \sum_{j \in \mathcal{N}_i} - \delta(p_i) \parallel^2 + \sum_{i \in C} \omega_i \parallel q_i - c_i \parallel^2$
 
 - $N$: number of vertices
 - $p_i$: Initial vertices position
 - $\mathcal{N}_i$: 1-ring of vertex i. $|\mathcal{N}_i|$ the size of the 1-ring.
-- $\delta(p_i) = p_i - 1/$
-  $|\mathcal{N}_i|$
-  $ \sum_{j \in \mathcal{N}_i} p_j$
+- $\delta(p_i) = p_i - (1/|\mathcal{N}_i|) \sum_{j \in \mathcal{N}_i} p_j$
 - $C$: Set of constrained vertex
 - $c_i$: Position of the constrained vertex
 - $\omega_i$: Weight associated to the constrained vertex $i \in C$
