@@ -118,10 +118,8 @@ int main()
 
     `build_matrix` : fill the matrix coefficient and perform factorization
     
-    `update_deformation` : solve the system for the given constraints
+    `update_deformation` : solve the system for the given constraints + handle the two types of constraints: fixed positions, and target one.
 
-        and handle the two types of constraints: fixed positions, and target one.
-        
 > [!NOTE]
 > You will need to compute the one ring of your surface.
 > Check the specific structure of your matrix with a coarse mesh (you can print it on the command line).
