@@ -24,6 +24,7 @@ void scene_structure::initialize()
 	shape = mesh_primitive_grid({ -1,-1,0 }, { 1,-1,0 }, { 1,1,0 }, { -1,1,0 }, N, N);
 	initial_position = shape.position;
 	one_ring = connectivity_one_ring(shape.connectivity);
+	rotations_arap.resize(shape.position.size());
 
 	constraints.fixed[offset(0, 0, N)] = shape.position[offset(0, 0, N)];
 	constraints.fixed[offset(N - 1, 0, N)] = shape.position[offset(N - 1, 0, N)];
@@ -32,7 +33,7 @@ void scene_structure::initialize()
 	visual.initialize_data_on_gpu(shape);
 
 	build_matrix(linear_system, constraints, shape, initial_position, one_ring);
-	update_deformation(linear_system, constraints, shape, visual, initial_position, one_ring);
+	update_deformation(linear_system, constraints, shape, visual, initial_position, one_ring, rotations_arap, gui.arap); 
 
 	timer_shape_update.event_period = 0.3f;
 }
@@ -56,6 +57,7 @@ void scene_structure::display_frame()
 			shape = mesh_load_file_obj(project::path+"assets/bunny.obj");
 			shape.scale(10.f);
 			shape.flip_connectivity();
+			shape.normal_update();
 			shape.color.fill({1,1,1});
 			shape.centered();
 			shape.rotate({1,0,0}, 1.57);
@@ -63,6 +65,7 @@ void scene_structure::display_frame()
 		}
 		initial_position = shape.position;
 		one_ring = connectivity_one_ring(shape.connectivity);
+		rotations_arap.resize(shape.position.size());
 
 		constraints.fixed[offset(0, 0, N)] = shape.position[offset(0, 0, N)];
 		constraints.fixed[offset(N - 1, 0, N)] = shape.position[offset(N - 1, 0, N)];
@@ -71,7 +74,7 @@ void scene_structure::display_frame()
 		visual.initialize_data_on_gpu(shape);
 
 		build_matrix(linear_system, constraints, shape, initial_position, one_ring);
-		update_deformation(linear_system, constraints, shape, visual, initial_position, one_ring);
+		update_deformation(linear_system, constraints, shape, visual, initial_position, one_ring, rotations_arap, gui.arap);
 
 	}
 
@@ -80,7 +83,7 @@ void scene_structure::display_frame()
 	if (surface_need_update) {
 		timer_shape_update.update(); // used to limit the frequency of the update (to limit the computations)
 		if (timer_shape_update.event) {
-			update_deformation(linear_system, constraints, shape, visual, initial_position, one_ring);
+			update_deformation(linear_system, constraints, shape, visual, initial_position, one_ring, rotations_arap, gui.arap);
 			surface_need_update = false;
 		}
 	}
@@ -172,7 +175,7 @@ void scene_structure::display_gui()
 	if (change_active_weight || change_passive_weight) {
 		build_matrix(linear_system, constraints, shape, initial_position, one_ring);
 		surface_need_update = false;
-		update_deformation(linear_system, constraints, shape, visual, initial_position, one_ring);
+		update_deformation(linear_system, constraints, shape, visual, initial_position, one_ring, rotations_arap, gui.arap);;
 	}
 
 
@@ -276,7 +279,7 @@ void scene_structure::mouse_click_event()
 		build_matrix(linear_system, constraints, shape, initial_position, one_ring);
 		surface_need_update = false;
 
-		update_deformation(linear_system, constraints, shape, visual, initial_position, one_ring);
+		update_deformation(linear_system, constraints, shape, visual, initial_position, one_ring, rotations_arap, gui.arap);;
 
 		constraint_selection.temporary_idx.clear();
 	}

@@ -18,7 +18,7 @@ void build_matrix(linear_system_structure& linear_system, constraint_structure c
     // 
 }
 
-void update_deformation(linear_system_structure& linear_system, constraint_structure const& constraints, cgp::mesh& shape, cgp::mesh_drawable& visual, cgp::numarray<cgp::vec3> const& initial_position, cgp::numarray<cgp::numarray<int> > const& one_ring)
+void update_deformation(linear_system_structure& linear_system, constraint_structure const& constraints, cgp::mesh& shape,  cgp::mesh_drawable& visual, cgp::numarray<cgp::vec3> const& initial_position, cgp::numarray<cgp::numarray<int> > const& one_ring, cgp::numarray<cgp::mat3> & rotations_arap, bool arap)
 {
     // TO DO: Update the RHS with new constraints and Solve the system
     //

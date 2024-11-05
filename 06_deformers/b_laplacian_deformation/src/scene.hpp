@@ -50,6 +50,7 @@ struct scene_structure : cgp::scene_inputs_generic {
 	cgp::mesh shape;
 	cgp::numarray<cgp::vec3> initial_position;
 	cgp::numarray<cgp::numarray<int>> one_ring;
+	cgp::numarray<cgp::mat3> rotations_arap;
 
 	// Least-square data
 
