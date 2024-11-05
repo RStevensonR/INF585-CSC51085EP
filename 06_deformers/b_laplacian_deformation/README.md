@@ -33,13 +33,13 @@ The deformation of the surface can be expressed as the set of position $q_i$ min
 
 $E = \sum_{i=0}^{N-1} \parallel \delta(q_i) - \delta(p_i) \parallel^2 + \sum_{i \in C} \omega_i \parallel q_i - c_i \parallel^2$
 
-$E = \sum_{i=0}^{N-1} \parallel q_i - \frac{1}{N_i} \sum_{j \in N_i } - \delta(p_i) \parallel^2 + \sum_{i \in C} \omega_i \parallel q_i - c_i \parallel^2$
+$`E = \sum_{i=0}^{N-1} \parallel q_i - \frac{1}{\mathcal{N}_i} \sum_{j \in \mathcal{N}_i } - \delta(p_i) \parallel^2 + \sum_{i \in C} \omega_i \parallel q_i - c_i \parallel^2`$
 
 
 - $N$: number of vertices
 - $p_i$: Initial vertices position
 - $\mathcal{N}_i$: 1-ring of vertex i. $|\mathcal{N}_i|$ the size of the 1-ring.
-- $\delta(p_i) = p_i - \frac{1}{|\mathcal{N}_i|} \sum_{j \in \mathcal{N}_i} p_j$
+- $`\delta(p_i) = p_i - \frac{1}{|\mathcal{N}_i|} \sum_{j \in \mathcal{N}_i} p_j`$
 - $C$: Set of constrained vertex
 - $c_i$: Position of the constrained vertex
 - $\omega_i$: Weight associated to the constrained vertex $i \in C$
@@ -134,7 +134,7 @@ int main()
 
 The As-Rigid-As-Possible method adds to the previous energy formulation the use of a matrix $R(q_i)$: rotation corresponding to the optimal rigid transform between $p_i$​ (and its neighborhood) and $q_i$​ (and its neighborhood).
 
-$E = \sum_{i=0}^{N-1} \parallel q_i - (1 / \mathcal{N}_i) \sum_{j \in \mathcal{N}_i} q_j - R(q_i)\delta(p_i) \parallel^2 + \sum_{i \in C} \omega_i \parallel q_i - c_i \parallel^2$
+$`E = \sum_{i=0}^{N-1} \parallel q_i - (1 / \mathcal{N}_i) \sum_{j \in \mathcal{N}_i} q_j - R(q_i)\delta(p_i) \parallel^2 + \sum_{i \in C} \omega_i \parallel q_i - c_i \parallel^2`$
 
 The energy is solved using an iterative process interleaving between two steps.
 - For fixed $R(q_i​)$, the optimal $q_i$​ can be found using the previous least square approach in minimizing $∥Mq−b_R∥^2$, where $b_R$​ is the right-hand-side taking into account $R(q_i)$.
