@@ -7,8 +7,8 @@
 // Include Eigen
 #define EIGEN_NO_DEBUG
 #define EIGEN_INITIALIZE_MATRICES_BY_ZERO
-#include "../eigen/Eigen/Sparse"
-#include "../eigen/Eigen/SVD"
+#include "../third_party/eigen/Eigen/Sparse"
+#include "../third_party/eigen/Eigen/SVD"
 
 
 // 2 types of constraints:
