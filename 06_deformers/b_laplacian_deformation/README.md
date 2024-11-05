@@ -123,13 +123,9 @@ int main()
         + handle the two types of constraints: fixed positions, and target one.
 > [!NOTE]
 > You will need to compute the one ring of your surface.
-
 > Check the specific structure of your matrix with a coarse mesh (you can print it on the command line).
-
 > If you don't translate your constraints, the solution should be the initial planar grid surface.
-
 > You can solve three systems in x, y, and z coordinates using the same matrix, but different rhs.
-
 > Using a guess solution with the "LeastSquaresConjugateGradient" helps to speed up the solution.
 
 ![sol_laplacian1](sollaplaceplane.gif) ![sol_laplacian2](sollaplacebunny.gif)
