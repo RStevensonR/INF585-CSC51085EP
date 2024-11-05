@@ -138,7 +138,7 @@ $`E = \sum_{i=0}^{N-1} \parallel q_i - \frac{1}{\mathcal{N}_i} \sum_{j \in \math
 
 The energy is solved using an iterative process interleaving between two steps.
 - For fixed $R(q_i​)$, the optimal $q_i$​ can be found using the previous least square approach in minimizing $∥Mq−b_R∥^2$, where $b_R$​ is the right-hand-side taking into account $R(q_i)$.
-- For fixed $q_i$​, the optimal rotation matrix $R(q_i​)$can be found using the polar decomposition of the covariance matrix $\sigma = \sum_j e_j(e_j^0)^T$, where $e_j$​ (resp. $e_j^0$​) are the edges of the 1-ring of $q_i$​ (resp. $p_i$). 
+- For fixed $q_i$​, the optimal rotation matrix $R(q_i​)$ can be found using the polar decomposition of the covariance matrix $\sigma = \sum_j e_j(e_j^0)^T$, where $e_j$​ (resp. $e_j^0$​) are the edges of the 1-ring of $q_i$​ (resp. $p_i$). 
 
 **Implement the ARAP deformation** and observe that the rotation of the surface automatically adapts to the constraints.
 - You may use a few iterations per step(<5).
