@@ -13,7 +13,7 @@ A left click on the mouse followed by a drag-and-drop allow to select a sub-part
 Different surfaces can be loaded in selecting in the GUI: *plane, cylinder, sphere, cube*, or a *pre-defined mesh*.
 The type and direction of deformer do not have any effect yet. 
 
-The deformation of the surface is computed in the function `apply_deformation` located in the file `deformation.cpp`. This function is called every time a vertex is selected and the mouse is dragged. 
+The deformation of the surface is computed in the function `apply_deformation` located in the file `deformers.cpp`. This function is called every time a vertex is selected and the mouse is dragged. 
 
 So far, the current deformation implements a translation in the view space with a local linear profile. 
 
@@ -35,7 +35,7 @@ Change the function `apply_deformation` in the file `deformers.cpp` to model the
 
 ### Translation in the surface normal direction
 
-In the same file add the possibility to constraint the translation to act only along the initial normal direction of the picked vertex (note that this information is stored in the `picking_parameters` structure). 
+In the same file add the possibility to constraint the translation to act only along the initial normal direction of the picked vertex (note that this information is stored in the `deformer_parameters_structure` structure). 
 
 *Let the user interactively select the deformation he wishes to apply using the checkbox Deformer direction: View space/Surface normal*
 
