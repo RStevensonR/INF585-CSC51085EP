@@ -54,6 +54,8 @@ Notes:
     - Decrease the `time_step`.
     - Increase the `collision_radius`.
 
+![Collision between particles](solparticlecollision.gif)
+
 ## Elasticity and Plasticity
 
 Extend the model to handle a notion of elasticity and plasticity to deformation.
@@ -64,7 +66,8 @@ Extend the model to handle a notion of elasticity and plasticity to deformation.
 
     $\alpha$ is the elasticity parameter (in the code: `param.elasticity`)
 
-![Collision between particles](solparticlecollision.gif)
+
+![Example of elastic deformation](solelasticdeform.gif)
 
 - Plasticity can be modeled in considering a modification of $p_i^{ref}$ (and $c^{ref}$) when a large deformation occurs.
 
@@ -73,6 +76,5 @@ Extend the model to handle a notion of elasticity and plasticity to deformation.
     
     Then update $p_i^{ref}$ and $c^{ref}$ to take into account such deformation in their new state.
 
-![Example of elastic deformation](solelasticdeform.gif)
 
 ![Example of plastic deformation](solplasticdeform.gif)
