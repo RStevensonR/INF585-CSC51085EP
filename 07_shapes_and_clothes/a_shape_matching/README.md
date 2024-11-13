@@ -62,8 +62,10 @@ Extend the model to handle a notion of elasticity and plasticity to deformation.
 
 - Elasticity can be modeled in considering the following deformation
 
-    $q_i = (1 - \alpha)R(p_i^{ref} - c^{ref}) + c + \alpha p_i$
+    $q_i = c + (1 - \alpha)R(p_i^{ref} - c^{ref}) + \alpha (p_i - c)$
 
+    $q_i = (1 - \alpha)(R(p_i^{ref} - c^{ref}) + c) + \alpha p_i$
+    
     $\alpha$ is the elasticity parameter (in the code: `param.elasticity`)
 
 
