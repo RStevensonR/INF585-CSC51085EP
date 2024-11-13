@@ -77,5 +77,4 @@ Extend the model to handle a notion of elasticity and plasticity to deformation.
     Then update $p_i^{ref}$ and $c^{ref}$ to take into account such deformation in their new state.
 
 
-
 ![Example of plastic deformation](solplasticdeform.gif)
