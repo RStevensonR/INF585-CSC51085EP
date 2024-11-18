@@ -8,7 +8,7 @@ The blue color around the particle comes from a field function set as $f(p)=\sum
 
 ![Initial state of the program](baseprogram.gif)
 
-Initial state of the program
+<ins>Initial state of the program</ins>
 
 ## Density
 
@@ -22,15 +22,20 @@ Note that this kernel is already implemented in the function `W_density`.
 
 Note: Fill the function `W_gradient_pressure` to be the gradient of the spiky kernel and use it in the computation of the pressure force
 
-[Example obtained without viscosity using 20 integration steps for each frame](solpressure.gif)
+![Example obtained without viscosity using 20 integration steps for each frame](solpressure.gif)
+
+<ins>Example obtained without viscosity using 20 integration steps for each frame</ins>
 
 ## Viscocity
 
 **Add the viscocity component** to the acceleration and observe the behavior for various viscosity (you may need to decrease the integration time step for large viscosity value).
 
-[Adding viscocity](solviscocity1.gif)
+![Adding viscocity](solviscocity1.gif)
 
-[Example with more particles](solviscocity2.gif)
+<ins>Adding viscocity</ins>
+
+![Example with more particles](solviscocity2.gif)
+<ins>Example with more particles</ins>
 
 ## Extensions
 
