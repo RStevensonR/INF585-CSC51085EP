@@ -26,15 +26,15 @@ Note: Fill the function `W_gradient_pressure` to be the gradient of the spiky ke
 
 <ins>Example obtained without viscosity using 20 integration steps for each frame</ins>
 
-## Viscocity
+## Viscosity
 
-**Add the viscocity component** to the acceleration and observe the behavior for various viscosity (you may need to decrease the integration time step for large viscosity value).
+**Add the viscosity component** to the acceleration and observe the behavior for various viscosity (you may need to decrease the integration time step for large viscosity value).
 
-![Adding viscocity](solviscocity1.gif)
+![Adding viscosity](solviscosity1.gif)
 
-<ins>Adding viscocity</ins>
+<ins>Adding viscosity</ins>
 
-![Example with more particles](solviscocity2.gif)
+![Example with more particles](solviscosity2.gif)
 <ins>Example with more particles</ins>
 
 ## Extensions
