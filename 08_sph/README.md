@@ -35,6 +35,7 @@ Note: Fill the function `W_gradient_pressure` to be the gradient of the spiky ke
 <ins>Adding viscosity</ins>
 
 ![Example with more particles](solviscosity2.gif)
+
 <ins>Example with more particles</ins>
 
 ## Extensions
