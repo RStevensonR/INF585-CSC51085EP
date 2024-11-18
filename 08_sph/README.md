@@ -6,7 +6,7 @@ The objective is to model a fluid simulation using SPH model. So far, only the g
 
 The blue color around the particle comes from a field function set as $f(p)=\sum_i exp(-(\parallel p - p_i \parallel / \sigma)^2)$ and displayed as a colored texture to give the visual impresion of continuous fluid material.
 
-[Initial state of the program](baseprogram.gif)
+![Initial state of the program](baseprogram.gif)Initial state of the program
 
 *Fill the function `update_density`* that set the density at each particle position $\rho_i$ using a smooth kernel.
 
