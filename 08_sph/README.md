@@ -6,25 +6,25 @@ The objective is to model a fluid simulation using SPH model. So far, only the g
 
 The blue color around the particle comes from a field function set as $f(p)=\sum_i exp(-(\parallel p - p_i \parallel / \sigma)^2)$ and displayed as a colored texture to give the visual impresion of continuous fluid material.
 
-    [Initial state of the program](baseprogram.gif)
+[Initial state of the program](baseprogram.gif)
 
 *Fill the function `update_density`* that set the density at each particle position $\rho_i$ using a smooth kernel.
 
 $W_h(p) = \frac{315}{64\pi h^3} (1 - (\frac{\parallel p \parallel}{h})^2)^3, \parallel p \parallel \leq h$
 
-    Note that this kernel is already implemented in the function `W_density`.
+Note that this kernel is already implemented in the function `W_density`.
 
 *Complete the function `update_acceleration`* to add the force component related to the *pressure* and check that the solution seems reasonable (before adding viscosity forces)
 
-    Note: Fill the function `W_gradient_pressure` to be the gradient of the spiky kernel and use it in the computation of the pressure force
+Note: Fill the function `W_gradient_pressure` to be the gradient of the spiky kernel and use it in the computation of the pressure force
 
-    [Example obtained without viscosity using 20 integration steps for each frame](solpressure.gif)
+[Example obtained without viscosity using 20 integration steps for each frame](solpressure.gif)
 
 *Add the viscocity component* o the acceleration and observe the behavior for various viscosity (you may need to decrease the integration time step for large viscosity value).
 
-    [Adding viscocity](solviscocity1.gif)
+[Adding viscocity](solviscocity1.gif)
 
-    [Example with more particles](solviscocity2.gif)
+[Example with more particles](solviscocity2.gif)
 
 ## Extensions
 
