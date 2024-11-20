@@ -18,7 +18,7 @@ $W_h(p) = \frac{315}{64\pi h^3} (1 - (\frac{\parallel p \parallel}{h})^2)^3, \pa
 
 Note that this kernel is already implemented in the function `W_density`.
 
-**Complete the function **`update_acceleration` to add the force component related to the *pressure* and check that the solution seems reasonable (before adding viscosity forces)
+__Complete the function__ `update_force` to add the force component related to the *pressure* and check that the solution seems reasonable (before adding viscosity forces)
 
 Note: Fill the function `W_gradient_pressure` to be the gradient of the spiky kernel and use it in the computation of the pressure force
 
