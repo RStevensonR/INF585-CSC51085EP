@@ -22,9 +22,9 @@ __Complete the function__ `update_force` to add the force component related to t
 
 The pressure force is defined as:
 
-$F_{pressure} = -\frac{m_i}{\rho_i} \sum_{j=0,j\neq i}^{N-1} m_j \frac{p_{r_j} + p_{r_i}}{2\rho_j} \nabla W_h(\parallel p_i - p_j \parallel)$
+$F_{pressure} = -\frac{m_i}{\rho_i} \sum_{j=0,j\neq i}^{N-1} m_j \frac{p_{r_j} + p_{r_i}}{2\rho_j} \nabla W_h^{p_r}(\parallel p_i - p_j \parallel)$
 
-Where $m_i$ is the mass, $\rho_i$ the density, $p_i$ the position and $p_r$ the pressure of particle $i$. $W_h$ is a spiky kernel.
+Where $m_i$ is the mass, $\rho_i$ the density, $p_i$ the position and $p_r$ the pressure of particle $i$. $W_h^{p_r}(d) = \frac{15}{\pi h^6}(h - d)^3$ is the spiky kernel for the pressure gradient with influence distance $h$.
 
 Note: Fill the function `W_gradient_pressure` to be the gradient of the spiky kernel and use it in the computation of the pressure force
 
@@ -38,9 +38,9 @@ Note: Fill the function `W_gradient_pressure` to be the gradient of the spiky ke
 
 The viscosity force is defined as:
 
-$F_{viscosity} = m_i \nu \sum_{j=0,j\neq i}^{N-1} m_j\frac{v_j - v_i}{\rho_j} \Delta W_h(\parallel p_i - p_j \parallel)$
+$F_{viscosity} = m_i \mu \sum_{j=0,j\neq i}^{N-1} m_j\frac{v_j - v_i}{\rho_j} \Delta W_h^(\parallel p_i - p_j \parallel)$
 
-Where $\nu$ is the viscosity parameter, $v_i$ the velocity. 
+Where $\mu$ is the viscosity parameter, $v_i$ the velocity. $W_h^{\mu}(d) = \frac{15}{2 \pi h^6}(h - d)^3$ is the spiky kernel for the viscosity laplacian with influence distance $h$.
 
 ![Adding viscosity](solviscosity1.gif)
 
