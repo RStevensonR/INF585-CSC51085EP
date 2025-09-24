@@ -82,7 +82,7 @@ void scene_structure::display_frame()
 
 	
 	if (gui.display_frame)
-		draw(global_frame, environment);
+		draw(global_frame, environment, 1, false);
 
 
 	// Update current time

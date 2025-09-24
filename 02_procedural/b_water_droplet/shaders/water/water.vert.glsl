@@ -111,7 +111,7 @@ void main()
 	position.z = position.z + deformation(position.x, position.y, time);
 
 	// The normal of the vertex in the world space
-	vec4 normal =  modelNormal * evaluate_normal(position.x, position.y, time);
+	vec4 normal =  transpose(inverse(model)) * evaluate_normal(position.x, position.y, time);
 
 	// The projected position of the vertex in the normalized device coordinates:
 	vec4 position_projected = projection * view * position;
