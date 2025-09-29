@@ -1,7 +1,5 @@
 # Procedural Animation - Bouncing Sphere
 
-> Path is 02_procedural/a_bouncing_spheres
-
 This code model procedurally the trajectory of a set of spheres falling under gravity.
 
 - Make sure you can compile and execute the code.\
@@ -10,12 +8,14 @@ This code model procedurally the trajectory of a set of spheres falling under gr
 The directory particles contains the structure associated to the particle model (position, velocity, time of birth, etc.). The general calls for the creation and display of the particles is defined in the file `scene.cpp`, in the function `display_frame()`.
 
 - Try to find the initial velocity of the particles ?\
-  Note: `rand_uniform(a,b)` is a function generating a uniform random float value in the interval \[a,b[\.
-- Change the initial speed such that particles have a varying yy component in their initial speed.
+  Note: `rand_uniform(a,b)` is a function generating a uniform random float value in the interval \[a,b\].
+- Change the initial speed such that particles have a varying vertical component in their initial speed.
 
 Note how the particles are removed with the function `remove_old_particles`
 
-- Change the delay between the emission of a new particle (variable `timer.event_period`) in the function `scene_structure::initialize()`.
+- You can change the delay between the emission of a new particle (variable `timer.event_period`) in the function `scene_structure::initialize()`. This is also a parameter which we can control through GUI.
+
+## <font color="#52ffe8">**TODO**</font>: Collision response with one bounce
 
 So far, each sphere follows a pure parabola trajectory without taking into account its collision with the plane.
 
@@ -33,7 +33,7 @@ So far, each sphere follows a pure parabola trajectory without taking into accou
 [Interactive View](https://imagecomputing.net/course/2023_2024/inf585/lab/content/02_procedural_animation/b_sphere_bounce/web/index.html)
 
 
-Extra (**THIS PART IT IS NOT MANDATORY**):
+## <font color="#50a16e">**EXTRA**</font> (**NOT** mandatory):
 - In the previous example, the collision is explicitly displayed by some shadow-looking effect.
   - How could you model such effect ?
   - Try to implement it if you have time - otherwise move to another exercise (**AGAIN, THIS PART IT IS NOT MANDATORY**).
