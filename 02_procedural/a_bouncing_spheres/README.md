@@ -15,7 +15,7 @@ Note how the particles are removed with the function `remove_old_particles`
 
 - You can change the delay between the emission of a new particle (variable `timer.event_period`) in the function `scene_structure::initialize()`. This is also a parameter which we can control through GUI.
 
-## <font color="#52ffe8">**TODO**</font>: Collision response (random initial vertical speed)
+## ${\color{cyan}\bf{TODO}}$: Collision response (random initial vertical speed)
 
 So far, each sphere follows a pure parabola trajectory without taking into account its collision with the plane.
 
@@ -33,7 +33,7 @@ So far, each sphere follows a pure parabola trajectory without taking into accou
 [Interactive View](https://imagecomputing.net/course/2023_2024/inf585/lab/content/02_procedural_animation/b_sphere_bounce/web/index.html)
 
 
-## <font color="#50a16e">**EXTRA**</font> (**NOT** mandatory):
+## ${\color{green}\bf{EXTRA}}$ (**NOT** mandatory):
 - In the previous example, the collision is explicitly displayed by some shadow-looking effect.
   - How could you model such effect ?
   - Try to implement it if you have time - otherwise move to another exercise (**AGAIN, THIS PART IT IS NOT MANDATORY**).

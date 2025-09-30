@@ -12,7 +12,7 @@ struct particle_structure
 	// Create a particle at its initial position
 	particle_structure(float creation_time=0);
 	// Evaluate the current position of the particle at the current time passed as argument
-	cgp::vec3 evaluate_position(float absolute_time) const;
+	cgp::vec3 evaluate_position(float absolute_time);
 };
 
 struct particle_system_structure
