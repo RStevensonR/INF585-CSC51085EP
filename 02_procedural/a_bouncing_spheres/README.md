@@ -15,20 +15,18 @@ Note how the particles are removed with the function `remove_old_particles`
 
 - You can change the delay between the emission of a new particle (variable `timer.event_period`) in the function `scene_structure::initialize()`. This is also a parameter which we can control through GUI.
 
-## <font color="#52ffe8">**TODO**</font>: Collision response with one bounce (random initial vertical speed)
+## <font color="#52ffe8">**TODO**</font>: Collision response (random initial vertical speed)
 
 So far, each sphere follows a pure parabola trajectory without taking into account its collision with the plane.
 
-- As mentioned above, change the initial vertical speed into a random one between [5, 7] (use `rand_uniform(a,b)`)
+- Set the initial vertical speed into a random one between [1, 7] (use `rand_uniform(a,b)`)
 
-- Implement such collision response in the system as an explicit parametric function. You only need to implement one bounce, not an arbitrary number of them.
+- Implement collision response in the system as an explicit parametric function.
 
 - Tips:
     - You should modify the code of the function `particle_structure::evaluate_position()`
-    - Limit the computation to one bounce
-    - Separate the trajectory into two parts by calculating the potential collision time.
-    - After the bouncing, reduce the vertical speed by 20% to simulate a small decrease of energy.
-    - Think about why the collision is "potential", and deal with the case when collision does not happen.
+    - Sphere may not bounce, and may not bounce only once.
+    - After each bouncing, reduce the vertical speed by 20% to simulate a small decrease of energy.
 
 ![Example_1](02abouncingsol.gif)
 
