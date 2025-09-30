@@ -10,7 +10,7 @@ particle_structure::particle_structure(float creation_time)
 	t0 = creation_time;
 }
 
-vec3 particle_structure::evaluate_position(float absolute_time) const
+vec3 particle_structure::evaluate_position(float absolute_time)
 {
 	vec3 const g = { 0,0,-9.81f };      // gravity constant
 	float const t = absolute_time - t0; // local time elapsed since the particle creation

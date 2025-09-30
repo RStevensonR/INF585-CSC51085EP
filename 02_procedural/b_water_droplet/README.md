@@ -6,7 +6,7 @@ This code displays a scene with a procedurally animated regular grid that models
 - The fragment shader `shaders/water/water.frag.glsl` also implements an environment map which is already pre-coded.
 - When you press on the `SPACE` key or click on the GUI button water drop, a geometric deformation is applied to a random location on the grid. This deformation is implemented in the vertex shader.
 
-## <font color="#52ffe8">**TODO**</font>: Water droplets with ripples
+## ${\color{cyan}\bf{TODO}}$: Water droplets with ripples
 
 Objective: The objective is to modify the shader deformation to represent a dynamic effect of a water droplet inspired by the example below.
 
