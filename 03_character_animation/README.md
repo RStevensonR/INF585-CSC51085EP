@@ -1,20 +1,27 @@
-# Character Animation - Skeletal Animation
+# Project: Character Animation - Part 1: Skeletal Animation
 
-> Path of the scene 04_character_animation
+Welcome to this week's lab. We will be working with a more advanced scene that features a pre-loaded character animation.
 
-This code present a more advanced scene setup with pre-loaded character animation. Your objective will be to add additional effects on the animated skeleton, in order to represent: smooth transitions, interactive user control to make the character walk, force the orientation of the head, and force the position of specific joint using Inverse Kinematics.
+This project is divided into two parts: **Skeletal Animation** and **Skinning**. This week, we will focus exclusively on the first part: **Skeletal Animation**.
 
-Once completed, your result should be similar to this [online version](https://imagecomputing.net/data/teaching/INF585/character_animation/web/no_soccer/index.html).
+Your objective is to implement several advanced features upon the provided animated skeleton. Specifically, you are required to:
+* Create **smooth transitions** between different animation clips.
+* Enable **interactive user control** to make the character walk.
+* Implement a mechanism to programmatically **force the orientation of the character's head**.
+* Utilize **Inverse Kinematics (IK)** to force the position of a specific joint.
+
+We provide an [interactive online demo](https://imagecomputing.net/data/teaching/INF585/character_animation/web/no_soccer/index.html) as a reference. However, please note that this demo is for conceptual illustration only and does not represent the target for a full-credit submission. To achieve full marks, your implementation must reproduce the results depicted in the GIF animations presented below.
 
 >[!NOTE]
-> The online version has skinning for character models but thats for the next session, for this week focus on the movement. SAME FOR THIS SESSION, DONT BOTHER WITH THE SKINNING, THATS FOR THE NEXT SESSION.
+> The online demo includes character skinning, which is a topic for the next lab session. For this week, your entire focus should be on the skeletal animation itself.
 
 ## Description of the animated character structure
 
 ### General Representation 
 
 The code provides a generic `character_structure`, and the scene is composed a few character accessible via their name (`characters[NAME]`).
-The mesh, rig, skeleton hierarchy and animation of the animated characters are pre-stored in files in the directory `assets/`, and are loaded at the start of the program. All the models are from [mixamo.com](https://www.mixamo.com).
+The mesh, rig, skeleton hierarchy and animation of the animated characters are pre-stored in files in the directory `assets/`, and are loaded at the start of the program. Models are from [mixamo.com](https://www.mixamo.com) and [sketchfab.com](https://sketchfab.com/).
+
 Each character is composed of a single skeleton hierarchy that can be associated to multiple pre-stored skeletal animations. Each character can also be composed of multiple rigged meshes. Each rigged mesh has its own set of skinning weights and dependence to a subpart of the skeleton. This dependence is stored using a sparse structure, i.e. for a given vertex we only store the joint index and associated weight which is not zero. 
 
 ### Details of code organization
@@ -118,24 +125,23 @@ These files are exported via the use of the python script `assets/export_from_da
 
 If you wish to add additional character, or animation, you may download Collada (.dae) characters from the [Mixamo](https://www.mixamo.com) website, and run the Python script on it. The output files can then be placed in the appropriate directories to be loaded in the C++ code. 
 
-## The Exercise Starts Here
-
-Again, don't bother with the skinning.
-
-## Smooth Transition Effect
+## ${\color{cyan}\bf{TODO}}$: Smooth Transition Effect
 
 The first effect to implement is to compute a smooth transition between two animation when selecting a new one. Every time the user select a new animation, the structure `effect_transition` associated to the modified character is filled with the appropriated parameters: the name of the source and destination animation, and a timer starts in order to perform the interpolation between the two states.
 
 Your objective is to complete the function `effect_transition_compute` in `effets/effects.cpp` in order to compute the intepolation between the appropriate joint transformation, and update the current character skeleton.
 
 Notes:
-- Think about which joint matrices should be interpolated, and how the interpolation should be computed.
+- Think about which joint matrices should be interpolated, and how the interpolation should be computed. 
+    - [Gimbal Lock](https://www.youtube.com/watch?v=zc8b2Jo7mno)
+    - [Quaternion](https://eater.net/quaternions)
+    - Lerp for something and slerp for something?
 - When working properly, the transition should not exhibits shrinkage of the character limbs.
 - The parameter transition_time, accessible via the GUI, gives the total amount of time used for the transition.
 
-![solutionsmoothtransition](solutionsmoothtransition.gif)
+![solutionsmoothtransition](solution_01_smooth.gif)
 
-## Walk Effect
+## ${\color{cyan}\bf{TODO}}$: Walk Effect
 
 The second objective is to implement a way to control interactively the character to make it walk in the direction given by the keyboard. Each character is provided with a default `Idle` and `Walk` animation. The walk animation, however, is a default cycle making the character moving straight for a short duration, before going back to the original pose. The goal is to be able to transition and set the character translation according to the user control in being able to move straight, turn left or right.
 
@@ -147,22 +153,22 @@ The second effect allowing to control the character position and orientation mus
 
 Notes:
 - The `effect_walking_structure` allows you to store a root position, and a root angle.
-- You may assume that initial "Lola" character is initially oriented along the `z` direction.
-- You may neglect the default translation of the animation cycle, which can lead to a small sliding effect between the feets and the floor.
+- `effect_walking.timer.update()` will not only update animation timer but also return the delta time between previous and current frame.
 
-![solutionwalk](solutionwalkeffect.gif)
+![solutionwalk](solution_02_walk.gif)
 
-## Head Orientation
+## ${\color{cyan}\bf{TODO}}$: Head Orientation
 
 The third objective is to implement a change of head orientation such that the character look at a given position. Complete the function `effect_rotate_head_toward_objective_position` to achieve this effect. Once active, the current character should be looking at the camera position.
 
 Notes:
 - You can use a parameterization of the rotation along the two degrees of freedom of the neck.
 - You may consider max limit angles that remains in plausible head orientation to avoid fully twisting the neck.
+- Tick the checkbox `Frame` of skeleton will give you a red arrow which can help you find the direction of head (or neck).
 
-![solutionheadorientation](solutionheadorientation.gif)
+![solutionheadorientation](solution_03_head.gif)
 
-## Inverse Kinematics
+## ${\color{cyan}\bf{TODO}}$: Inverse Kinematics
 
 The last effect is to implement an Inverse Kinematics (IK) over a subset of the skeleton joints of a character.
 
@@ -173,7 +179,11 @@ The objective is to code the function `effect_ik_compute` to implement an IK def
 Hints:
 - You may need to pre-store the set of joints and bones along the chain defined between `joint_root_ik` and `joint_target`.
 - The GUI allows to interactively change `joint_root_ik` and `joint_target`. If the chain is not a valid one, i.e. `joint_root_ik` not being a parent of `joint_target`, you may consider the skeleton root instead.
-- You may compute first the IK over the position only, and then convert the final into rotation to be applied on the joints
+- You may compute first the IK over the position only, and then convert the final into rotation to be applied on the joints.
+- Check [Fabrik Tutorial](https://www.youtube.com/watch?v=UNoX65PRehA).
 
-![solutioninversekinematics](solutionik1.gif)
-![solutioninversekinematics](solutionik2.gif)
+![solutioninversekinematics](solution_04_ik.gif)
+
+## ${\color{cyan}\bf{SUBMISSION}}$
+
+Compress the "src" folder to "src.zip" file and submit it.

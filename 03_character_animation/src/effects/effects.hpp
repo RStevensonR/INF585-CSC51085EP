@@ -3,6 +3,7 @@
 #include "cgp/cgp.hpp"
 
 #include "../animated_character/animated_character.hpp"
+#include "../environment.hpp"
 
 // Structure storing state to compute a transition between two animations: source -> destination
 struct effect_transition_structure {
@@ -53,7 +54,7 @@ void effect_ik_compute(effect_ik_structure const& effect_ik, skeleton_structure&
 void effect_ik_start(effect_ik_structure& effect_ik, skeleton_structure& skeleton, int joint_end);
 
 // Change of position of the character when a directional key is pressed
-void effect_walking(effect_walking_structure& effect_walking, character_structure& character, cgp::input_devices const& inputs, effect_transition_structure const& effect_transition);
+void effect_walking(effect_walking_structure& effect_walking, character_structure& character, cgp::input_devices const& inputs);
 // Change of animation when we press or release the UP key during a walk effect
 void effect_walking_keyboard_event(effect_transition_structure& effect_transition, character_structure& character, cgp::input_devices const& inputs, effect_walking_structure const& effect_walking);
 

@@ -1,4 +1,5 @@
 #include "skeleton_drawable.hpp"
+#include "../../environment.hpp"
 
 using namespace cgp;
 
@@ -22,6 +23,16 @@ skeleton_drawable::skeleton_drawable(skeleton_structure const& skeleton)
     segments.initialize_data_on_gpu(edges);
     joint_frame.initialize_data_on_gpu(mesh_primitive_frame());
     joint_sphere.initialize_data_on_gpu(mesh_primitive_sphere());
+    for (int i = 0; i < skeleton.joint_name.size(); i++)
+    {
+        if (skeleton.joint_name[i] == "mixamorig_HeadTop_End")
+            head_joint_index = i;
+        if (skeleton.joint_name[i] == "mixamorig_LeftEye")
+            left_eye_index = i;
+        if (skeleton.joint_name[i] == "mixamorig_RightEye")
+            right_eye_index = i;
+    }
+    head_mesh.initialize_data_on_gpu(cgp::mesh_load_file_obj(project::path+"assets/robot_head.obj"));
 }
 
 void skeleton_drawable::update(skeleton_structure const& skeleton){

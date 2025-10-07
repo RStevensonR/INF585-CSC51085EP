@@ -25,22 +25,15 @@ void scene_structure::initialize()
 	
 	std::cout<<"- Load Lola character"<<std::endl;
 	characters["Lola"] = load_character_lola();
+	characters["Lola"].animated_model.apply_transformation({2,0,-1});
 
 	characters["Lola2"] = load_character_lola();
 	characters["Lola2"].set_current_animation("Dance4");
-	characters["Lola2"].animated_model.apply_transformation({-0.5f,0,2},rotation_axis_angle({0,1,0},Pi));
+	characters["Lola2"].animated_model.apply_transformation({2,0,1},rotation_axis_angle({0,1,0},Pi));
 	
 	std::cout<<"- Load Maria-sword character"<<std::endl;
 	characters["Maria-sword"] = load_character_maria_sword();
-	characters["Maria-sword"].animated_model.apply_transformation({-2,0,0});
-	
-
-	// Uncomment the following to load the soccer character (a bit more heavy)
-	// -- You may need to download the soccer file and place it in the assets directory
-	//  std::cout<<"- Load Soccer character"<<std::endl;
-	//  characters["Soccer"] = load_character_soccer();
-	//  characters["Soccer"].animated_model.apply_transformation({2,0,0});
-	// --
+	characters["Maria-sword"].animated_model.apply_transformation({0,0,0},rotation_axis_angle({0,1,0},0.5f * Pi));
 
 	current_active_character = "Lola";
 
@@ -94,7 +87,7 @@ void scene_structure::display_frame()
 
 	// Apply the walk effect if activated
 	if(effect_walk.active) {
-		effect_walking(effect_walk, characters[current_active_character], inputs, effect_transition[current_active_character]);
+		effect_walking(effect_walk, characters[current_active_character], inputs);
 	}
 
 	// Apply the Inverse Kinematics effect if activated
@@ -110,7 +103,7 @@ void scene_structure::display_frame()
 	// Apply the head rotation effect if activated
 	if(gui.rotate_head_effect_active) {
 		for(auto& entry_character : characters) {
-			effect_rotate_head_toward_objective_position(entry_character.second.animated_model.skeleton, 10, camera_control.camera_model.position());
+			effect_rotate_head_toward_objective_position(entry_character.second.animated_model.skeleton, 15, camera_control.camera_model.position());
 		}
 	}
 
@@ -120,7 +113,6 @@ void scene_structure::display_frame()
 	for(auto& entry_character : characters) {
 		character_structure& character = entry_character.second;
 		animated_model_structure& animated_model = entry_character.second.animated_model;
-
 		if(gui.display_skeleton) {
 			character.sk_drawable.update(animated_model.skeleton);
 			character.sk_drawable.display_joint_frame = gui.display_skeleton_joint_frame;
@@ -128,7 +120,6 @@ void scene_structure::display_frame()
 			character.sk_drawable.display_segments = gui.display_skeleton_bone;
 			draw(character.sk_drawable, environment);
 		}
-
 	}
 
 }
@@ -166,7 +157,8 @@ void scene_structure::display_gui()
 	if(is_walk_clicked && effect_walk.active){
 		effect_transition[current_active_character].transition_time = 0.2f;
 		characters[current_active_character].set_current_animation("Idle");
-		effect_walk.root_position = vec3(0,0,0);
+		mat4 idle_start_root = characters[current_active_character].animated_model.animation["Idle"].evaluate(0,0);
+		effect_walk.root_position = idle_start_root.get_block_translation();
 	}
 
 	// Handle start of IK
@@ -228,8 +220,12 @@ void scene_structure::display_gui()
 			if(effect_walk.active) {
 				effect_transition[current_active_character].transition_time = 0.2f;
 				characters[current_active_character].set_current_animation("Idle");
-				effect_walk.root_position = vec3(0,0,0);
-				effect_walk.root_angle = 0.0f;
+				mat4 idle_start_root = characters[current_active_character].animated_model.animation["Idle"].evaluate(0,0);
+				effect_walk.root_position = idle_start_root.get_block_translation();
+				vec3 rotation_axis;
+				float rotation_angle;
+				rotation_transform::from_matrix(idle_start_root.get_block_linear()).to_axis_angle(rotation_axis, rotation_angle);
+				effect_walk.root_angle = rotation_angle;
 			}
 		}
 		ImGui::PopStyleColor();
