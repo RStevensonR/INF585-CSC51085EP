@@ -29,6 +29,8 @@ void animated_model_structure::skinning_lbs(std::string const& mesh_name)
 
         vec3 p_accumulated;
         vec3 n_accumulated;
+
+        // TODO .....
     }
     
 }

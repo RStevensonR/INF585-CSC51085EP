@@ -106,7 +106,7 @@ void effect_walking_keyboard_event(effect_transition_structure& effect_transitio
 
 // This function implements the change of position of the character when a directional key is pressed
 // This function is called at every frame when the walk effect is active
-void effect_walking(effect_walking_structure& effect_walking,  character_structure& character, cgp::input_devices const& inputs, effect_transition_structure const& effect_transition)
+void effect_walking(effect_walking_structure& effect_walking,  character_structure& character, cgp::input_devices const& inputs)
 {
 
 	/** TO DO : An displacement of the character along the direction of the walk.

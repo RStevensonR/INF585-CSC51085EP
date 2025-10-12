@@ -21,26 +21,6 @@ character_structure load_character_lola() {
 	return character;
 }
 
-character_structure load_character_soccer() {
-	filename_loader_structure loader_param;
-	loader_param.set_skeleton(project::path+"assets/soccer/");
-	loader_param.add_rigged_mesh("body",project::path+"assets/soccer/mesh-ch38_body/", project::path+"assets/soccer/mesh-ch38_body/texture.png");
-	loader_param.add_rigged_mesh("shirt",project::path+"assets/soccer/mesh-ch38_shirt/", project::path+"assets/soccer/mesh-ch38_shirt/texture.png");
-	loader_param.add_rigged_mesh("shorts",project::path+"assets/soccer/mesh-ch38_shorts/", project::path+"assets/soccer/mesh-ch38_shirt/texture.png");
-	loader_param.add_rigged_mesh("socks",project::path+"assets/soccer/mesh-ch38_socks/", project::path+"assets/soccer/mesh-ch38_shirt/texture.png");
-	loader_param.add_rigged_mesh("shoes",project::path+"assets/soccer/mesh-ch38_shoes/", project::path+"assets/soccer/mesh-ch38_shirt/texture.png");
-	loader_param.add_rigged_mesh("hair",project::path+"assets/soccer/mesh-ch38_hair/", project::path+"assets/soccer/mesh-ch38_hair/texture.png");
-	loader_param.add_animation("Idle", project::path+"assets/soccer/animation/idle/");
-	loader_param.add_animation("Walk", project::path+"assets/soccer/animation/walk/");
-	loader_param.add_animation("Jump", project::path+"assets/soccer/animation/jump/");
-	
-
-	character_structure character;
-	character.load_and_initialize(loader_param, affine_rts().set_scaling(0.01f));
-
-	return character;
-}
-
 character_structure load_character_maria_sword() {
 	filename_loader_structure loader_param;
 	loader_param.set_skeleton(project::path+"assets/maria-sword/");

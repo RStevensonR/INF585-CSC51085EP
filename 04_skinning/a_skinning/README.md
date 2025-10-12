@@ -1,7 +1,5 @@
 # Skinning Deformation
 
-> Path of the scene 05_skinning/a_skinning
-
 The objective of this scene is to model skeleton-based character deformation using linear blend skinning and dual quaternion skinning, as well as an automatic computation of skinning weights. 
 
 Once completed, your result should be similar to this [online version](https://imagecomputing.net/course/2023_2024/inf585/lab/content/06_skinning/web/index.html)
@@ -20,7 +18,7 @@ In the current initial state of the program three models are proposed:
 - This function only works in the case of a 3-joint skeleton with a tubular mesh oriented along the x-coordinate, and $x\in[0,1]$.
 - The model of cow doesn't have skinning weights computed and remains static.
 
-## Linear Blend Skinning
+## ${\color{cyan}\bf{TODO}}$: Linear Blend Skinning
 
 The first objective is to complete the linear blend skinning deformation to make it work on the cylinder and bar model. The function to be completed is in the file animated_model.cpp, function skinning_lbs().
 We remind the Linear Blend Skinning formulation: 
@@ -46,7 +44,7 @@ where
 Once implemented, you should obtain a valid bending-like deformation for the cylinder and the bar.
 Note: It is normal that the cow is not yet deforming as it lacks skinning weights, and the twisting motion on the cylinder and bar would lead to collapsing artifact.
 
-## Generating skinning weights
+## ${\color{cyan}\bf{TODO}}$: Generating skinning weights
 
 The cow model only contains a mesh and an animated skeleton, but lacks skinning weights. The goal in this part is to adapt the function `compute_skinning_weights_generic()` in the file `scene.cpp` in order to generate skinning weights automatically. A possibility is to compute the skinning weights as 
 
@@ -64,7 +62,7 @@ Once computed, the cow model should now be animated along its skeletal animation
 > [!IMPORTANT]
 > It is normal that the automatic computation of skinning weights doesn't provide a perfect result. To achieve better results, more advanced distance computation (e.g. taking into account interior/exterior of the shape could be considered). Ultimately, modeling software like Blender or Maya allows to manually paint weights for fine tuning.
 
-## Dual Quaternion Skinning
+## ${\color{cyan}\bf{TODO}}$: Dual Quaternion Skinning
 
 The use of Linear Blend Skinning on the twist motion of the cylinder and bar leads to collapsing artifact due to the linear blending of the transformation matrix components. A solution to this problem is the use of the *Dual Quaternion Skinning* - DQS.
 
