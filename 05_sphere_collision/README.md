@@ -55,7 +55,7 @@ where $p_i$ is the position of the particle, $a$ is the position of the surface,
         $v^{new} = \alpha v_{\parallel} - \beta v_{\bot}$
         With $\alpha,\beta \in [0,1]$ being the restitution coefficient in each direction with $\parallel$ being the friction and $\bot$ the impact (you can choose your own values for $\alpha$ and $\beta$).
 
-## ${\color{cyan}\bf{TODO}}$: Velocity Correction
+## ${\color{cyan}\bf{TODO}}$: Collision Correction
 
 - Collision sphere-sphere:
     - If a collision is detected, check if there is penetration between particles.
