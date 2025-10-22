@@ -11,28 +11,6 @@ The collision response can be implemented in two steps:
 
 - **First** applying impulse response to generate the bouncing (with the cube, and other particles)
 - **Second** canceling the velocity components that still generate a penetration (with the cube, and other particles)
-    
-## ${\color{cyan}\bf{TODO}}$: Collision Sphere-Sphere:
-
-<div style="text-align: center;">
-<img src="collision_sphere_sphere.png" alt="" width="350"/>
-</div>
-
-- Again, start by detecting the collision between two particles:
-$\parallel p_1 - p_2 \parallel \leq r_1 + r_2$
-- If a collision is detected, you must compute the impulse $j$ but first check that there is no negative orientation $v\cdot n < 0$ (if opposite, no update happen). For this step we assume an ellastic collision (No loss of energy/Conservation of kinetic energy of the system).
-    - The impulse is computed as follows:
-
-        $j = 2\frac{m_1 m_2}{m_1 + m_2}(v_2 - v_1)\cdot u$
-
-        $\text{where }u = (p_1 - p_2)/\parallel p_1 - p_2\parallel$
-
-- To simplify, we assume that for all particles $m=1.0$.
-    - Use the impulse to update the velocities:
-
-        $v_1^{new} = \alpha(v_1 + ju)$
-
-        $v_2^{new} = \alpha(v_2 - ju)$  
 
 ## ${\color{cyan}\bf{TODO}}$: Collision Sphere-Plane: 
 
@@ -47,15 +25,37 @@ where $p_i$ is the position of the particle, $a$ is the position of the surface,
         $(p_i - a)\cdot n - r < 0 \text{ and } v_i\cdot n < 0$
 - For the response you must decomposed the velocity in two components with respect to the normal surface (parallel and perpendicular):
     
-    $v_{\parallel} = (v \cdot n) n$
+    $v_{\bot} = (v \cdot n) n$
 
-    $v_{\bot} = v - (v \cdot n) n$
+    $v_{\parallel} = v - (v \cdot n) n$
     
 - Finally you compute the new velocity:
         $v^{new} = \alpha v_{\parallel} - \beta v_{\bot}$
         With $\alpha,\beta \in [0,1]$ being the restitution coefficient in each direction with $\parallel$ being the friction and $\bot$ the impact (you can choose your own values for $\alpha$ and $\beta$).
 
-## ${\color{cyan}\bf{TODO}}$: Collision Correction
+## ${\color{cyan}\bf{TODO}}$: Collision Sphere-Sphere:
+
+<div style="text-align: center;">
+<img src="collision_sphere_sphere.png" alt="" width="350"/>
+</div>
+
+- Again, start by detecting the collision between two particles:
+$\parallel p_1 - p_2 \parallel \leq r_1 + r_2$
+- If a collision is detected, you must compute the impulse $j$ but first check that there is no negative orientation $v_{12}\cdot p_{12} < 0$ (if opposite, no update happen). For this step we assume an ellastic collision (No loss of energy/Conservation of kinetic energy of the system).
+    - The impulse is computed as follows:
+
+        $j = 2\frac{m_1 m_2}{m_1 + m_2}(v_2 - v_1)\cdot u$
+
+        $\text{where }u = (p_1 - p_2)/\parallel p_1 - p_2\parallel$
+
+- To simplify, we assume that for all particles $m=1.0$.
+    - Use the impulse to update the velocities with $\alpha$ as damping coefficient:
+
+        $v_1^{new} = \alpha(v_1 + ju)$
+
+        $v_2^{new} = \alpha(v_2 - ju)$  
+
+## ${\color{cyan}\bf{TODO}}$: Velocity Correction
 
 - Collision sphere-sphere:
     - If a collision is detected, check if there is penetration between particles.
@@ -68,7 +68,7 @@ where $p_i$ is the position of the particle, $a$ is the position of the surface,
 - Collision sphere-plane:
     - If a collision is detected, check if there is penetration between the plane and the particle.
     $(p_i - a)\cdot n - r< 0$
-    - If the condition is meet, cancel the velocity component that produce the penetration particles between plane and particle.
+    - If the condition is meet, cancel the velocity component that produce the penetration between plane and particle.
 
 Once the velocity is computed, then the sphere positions are finally updated
 
