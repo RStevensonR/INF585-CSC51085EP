@@ -64,11 +64,11 @@ $\parallel p_1 - p_2 \parallel \leq r_1 + r_2$
 
         $\text{where }u = (p_1 - p_2)/\parallel p_1 - p_2 \parallel$
         
-    - If the condition is meet, cancel the velocity components that still produce penetration between particles.
+    - If the condition is meet, modify the velocity components that still produce penetration between particles.
 - Collision sphere-plane:
     - If a collision is detected, check if there is penetration between the plane and the particle.
     $(p_i - a)\cdot n - r< 0$
-    - If the condition is meet, cancel the velocity component that produces the penetration between plane and particle.
+    - If the condition is meet, modify the velocity component that produces the penetration between plane and particle.
 
 Once the velocity is computed, then the sphere positions are finally updated
 
