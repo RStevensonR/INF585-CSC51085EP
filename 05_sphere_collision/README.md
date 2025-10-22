@@ -55,7 +55,7 @@ $\parallel p_1 - p_2 \parallel \leq r_1 + r_2$
 
         $v_2^{new} = \alpha(v_2 - ju)$  
 
-## ${\color{cyan}\bf{TODO}}$: Velocity Correction
+## ${\color{cyan}\bf{TODO}}$: Collision Correction
 
 - Collision sphere-sphere:
     - If a collision is detected, check if there is penetration between particles.
