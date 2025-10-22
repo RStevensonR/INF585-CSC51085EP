@@ -68,7 +68,7 @@ $\parallel p_1 - p_2 \parallel \leq r_1 + r_2$
 - Collision sphere-plane:
     - If a collision is detected, check if there is penetration between the plane and the particle.
     $(p_i - a)\cdot n - r< 0$
-    - If the condition is meet, cancel the velocity component that produce the penetration between plane and particle.
+    - If the condition is meet, cancel the velocity component that produces the penetration between plane and particle.
 
 Once the velocity is computed, then the sphere positions are finally updated
 
