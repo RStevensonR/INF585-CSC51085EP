@@ -7,7 +7,8 @@
 enum deformer_type_enum {
 	deform_translate,
 	deform_twist,
-	deform_scale
+	deform_scale,
+	deform_perlin
 };
 
 enum deformer_direction_enum {

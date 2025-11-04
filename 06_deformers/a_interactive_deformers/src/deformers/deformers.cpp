@@ -45,11 +45,16 @@ void apply_deformation(mesh& shape, numarray<vec3> const& position_before_deform
 		}
 		if (deformer_parameters.type == deform_twist)
 		{
-			// Deformation to implement
+			// Hint: You can use the 2D translation on screen (or maybe one component of it) to define the angle of rotation
+			// Use the direction from the parameters to switch between view-space and surface-normal based deformation 
 		}
 		if (deformer_parameters.type == deform_scale)
 		{
-			// Deformation to implement"
+			// Hint: You can use the 2D translation on screen (or maybe one component of it) to define the scaling factor
+		}
+		if (deformer_parameters.type == deform_perlin)
+		{
+			// Bonus deformation to implement
 		}
 
 	}

@@ -1,7 +1,5 @@
 # Laplacian editing, ARAP
 
-> Path of the scene is 06_deformers/b_laplacian_deformation
-
 The objective of this scene is to model interactive laplacian deformation similarily to the following two articles:
 - [[1](https://igl.ethz.ch/projects/Laplacian-mesh-processing/Laplacian-mesh-editing/diffcoords-editing.pdf)] Differential Coordinates for Interactive Mesh Editing. O. Sorkine et al. SMI 2004
 - [[2](https://igl.ethz.ch/projects/ARAP/arap_web.pdf)] As-Rigid-As-Possible (ARAP).
@@ -27,7 +25,7 @@ Another mode "Select constraint" is proposed where these constraints can be modi
 - A drag and drop with the left button of the mouse selects new target constraints, while the right button of the mouse selects new fixed constraints.
 - Selecting an empty space allows to erase existing constraints.
 
-## Laplacian surface deformation
+## Laplacian surface deformation ##
 
 The deformation of the surface can be expressed as the set of position $q_i$ minimizing the following energy.
 
@@ -109,7 +107,7 @@ int main()
 }
 ```
 
-**__Solving for Laplacian deformation__**
+## ${\color{cyan}\bf{TODO}}$: Implement Laplacian deformation
 
 1. Build the associate matrix $M$ and right-hand-side $b$ depending on your shape and constraints.
 2. Then solve the least square problem and display the result.
@@ -129,7 +127,7 @@ Notes:
 
 ![sol_laplacian1](sollaplaceplane.gif) ![sol_laplacian2](sollaplacebunny.gif)
 
-## As-Rigid-As-Possible
+## As-Rigid-As-Possible ##
 
 The As-Rigid-As-Possible method adds to the previous energy formulation the use of a matrix $R(q_i)$: rotation corresponding to the optimal rigid transform between $p_i$​ (and its neighborhood) and $q_i$​ (and its neighborhood).
 
@@ -139,7 +137,9 @@ The energy is solved using an iterative process interleaving between two steps.
 - For fixed $R(q_i​)$, the optimal $q_i$​ can be found using the previous least square approach in minimizing $∥Mq−b_R∥^2$, where $b_R$​ is the right-hand-side taking into account $R(q_i)$.
 - For fixed $q_i$​, the optimal rotation matrix $R(q_i​)$ can be found using the polar decomposition of the covariance matrix $\sigma = \sum_j e_j(e_j^0)^T$, where $e_j$​ (resp. $e_j^0$​) are the edges of the 1-ring of $q_i$​ (resp. $p_i$). 
 
-**Implement the ARAP deformation** and observe that the rotation of the surface automatically adapts to the constraints.
+## ${\color{cyan}\bf{TODO}}$: Implement the ARAP deformation
+
+Compute the implementation in `update_deformation` and observe that the rotation of the surface automatically adapts to the constraints.
 - You may use a few iterations per step(<5).
 - Eigen can compute the SVD of matrices to compute robustly a polar decomposition.
 

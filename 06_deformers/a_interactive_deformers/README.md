@@ -1,7 +1,5 @@
 # Interactive Deformers
 
-> Path of the scene is 06_deformers/a_interactive_deformers
-
 The objective of this scene is to model interactive deformers allowing to locally grap and pull/push, scale, and bend/twist some part of the surface. 
 
 ## Current state of the code
@@ -17,23 +15,25 @@ The deformation of the surface is computed in the function `apply_deformation` l
 
 So far, the current deformation implements a translation in the view space with a local linear profile. 
 
-- If ($\parallel p - p_0\parallel < d_{falloff}$):
+- If ($\parallel p - p_0\parallel < r_{transform}$):
 
-    $p = p_0 + (\parallel p - p_0 \parallel / d_{falloff}) \times translation$
+    $p = p_0 + (\parallel p - p_0 \parallel / r_{transform}) \times translation$
 
     With:
-    - $d_{falloff}$: fall off distance
+    - $r_{transform}$: radius of influence of transformation
     - $p$: the coordinates of the vertex to deform
     - $p_0$: the initial position of the selected vertex (before deformation)
     - translation: the 3D translation implied from the mouse displacement in the camera plane
 
-### Translation in the camera plane
+- Additionally, if you want a smoother deformation, you can use a simple Gaussian to compute $p$.
+
+## ${\color{cyan}\bf{TODO}}$: Translation in the camera plane
 
 Change the function `apply_deformation` in the file `deformers.cpp` to model the following effect where the surface can be smoothly pulled/pushed along the mouse displacement.
 
 ![sol_translation_cplane](soltranslationcamera.gif)
 
-### Translation in the surface normal direction
+## ${\color{cyan}\bf{TODO}}$: Translation in the surface normal direction
 
 In the same file add the possibility to constraint the translation to act only along the initial normal direction of the picked vertex (note that this information is stored in the `deformer_parameters` structure). 
 
@@ -41,20 +41,20 @@ In the same file add the possibility to constraint the translation to act only a
 
 ![sol_translation_ndir](soltranslationnormal.gif)
 
-### Twist
+## ${\color{cyan}\bf{TODO}}$: Twist
 
 Add the possibility to twist the surface: the direction of the twist being defined either by the camera direction, or the normal of the surface, and its angular magnitude is given by the amount of mouse displacement.
 
 ![sol_twist](soltwist.gif)
 
-### Scale
+## ${\color{cyan}\bf{TODO}}$: Scale
 
 Finally, add the possibility to expand/squeeze the surface around the selected vertex. In this case, there is no choice of View space/Surface normal direction.
 
 ![sol_scale](solscale.gif)
 
-### Extra - Noise Magnitude
+## ${\color{cyan}\bf{BONUS}}$: Noise Magnitude
 
-**IF YOU HAVE TIME (yes, only if you have)**, add the possibility to add locally Perlin noise deformation whose magnitude is controled by the amount of translation of the mouse
+**IF YOU HAVE TIME (yes, only if you have).** Add the possibility to add locally Perlin noise deformation whose magnitude is controled by the amount of translation of the mouse
 
 ![sol_noise](solperlin.gif)
