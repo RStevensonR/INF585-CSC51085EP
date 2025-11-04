@@ -43,7 +43,7 @@ void update_deformation(linear_system_structure& linear_system, constraint_struc
     //
     // Hint:
     // - It is recommended to do the initial solution without ARAP, once you have the initial solution you can add the ARAP.
-    // - For the traditional Laplacian deformation, you use multiple iterations to converge to the solution, but is not the same for ARAP.
+    // - For the traditional Laplacian deformation, you use multiple iterations to converge to the solution, but is slightly different for ARAP.
 
     for(int k_iteration=0; k_iteration<N_iteration; ++k_iteration)
 	{
@@ -55,4 +55,5 @@ void update_deformation(linear_system_structure& linear_system, constraint_struc
     shape.normal_update();
     visual.vbo_position.update(shape.position); 
     visual.vbo_normal.update(shape.normal);
+
 }
