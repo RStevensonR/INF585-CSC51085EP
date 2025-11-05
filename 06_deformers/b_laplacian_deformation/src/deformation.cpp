@@ -8,7 +8,7 @@ void build_matrix(linear_system_structure& linear_system, constraint_structure c
     size_t const N = shape.position.size();
 	size_t const N_constraints = constraints.fixed.size() + constraints.target.size();
 
-    // TO DO: Build and fill the matrix M and the rhs (M q_x/y/z = rhs_x/y/z)
+    // TO DO: Setup RHS and Guess vectors, and build the matrix M
     //
     //  1) Initialize the right-hand-size vector and the initial solution guess
     //  2) Fill the matrix M using the differential coordinates and the Laplacian constraints
@@ -34,7 +34,7 @@ void update_deformation(linear_system_structure& linear_system, constraint_struc
     // For every iteration you should:
     // 0.5) If arap is used:
     //       - Compute the covariance matrix for each vertex
-    //       - Compute the optimal rotation using SVD (check functions of Eigen)
+    //       - Compute the optimal rotations using SVD (check functions of Eigen)
     //       - Store the rotations
     //   1) Compute the differential coordinates
     //   2) Add the constraint terms

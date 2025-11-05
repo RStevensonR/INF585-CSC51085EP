@@ -134,8 +134,8 @@ The As-Rigid-As-Possible method adds to the previous energy formulation the use 
 $`E = \sum_{i=0}^{N-1} \parallel q_i - \frac{1}{G_i} \sum_{j \in G_i} q_j - R(q_i)\delta(p_i) \parallel^2 + \sum_{i \in C} \omega_i \parallel q_i - c_i \parallel^2`$
 
 The energy is solved using an iterative process interleaving between two steps.
-- For fixed $R(q_i​)$, the optimal $q_i$​ can be found using the previous least square approach in minimizing $∥Mq−b_R∥^2$, where $b_R$​ is the right-hand-side taking into account $R(q_i)$.
-- For fixed $q_i$​, the optimal rotation matrix $R(q_i​)$ can be found using the polar decomposition of the covariance matrix $\sigma = \sum_j e_j(e_j^0)^T$, where $e_j$​ (resp. $e_j^0$​) are the edges of the 1-ring of $q_i$​ (resp. $p_i$). 
+- For fixed $R(q_{i}​)$, the optimal $q_i$​ can be found using the previous least square approach in minimizing $∥Mq−b_R∥^2$, where $b_R$​ is the right-hand-side taking into account $R(q_i)$.
+- For fixed $q_i$​, the optimal rotation matrix $R(q_{i}​)$ can be found using the polar decomposition of the covariance matrix $\sigma = \sum_j e_j(e_j^0)^T$, where $e_j$​ (resp. $e_j^0$​) are the edges of the 1-ring of $q_i$​ (resp. $p_i$). 
 
 ## ${\color{cyan}\bf{TODO}}$: Implement the ARAP deformation
 
