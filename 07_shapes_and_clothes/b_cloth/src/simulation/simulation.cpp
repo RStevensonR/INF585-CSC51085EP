@@ -16,8 +16,8 @@ void simulation_compute_force(cloth_structure& cloth, simulation_parameters cons
     grid_2D<vec3>& force = cloth.force;  // Storage for the forces exerted on each vertex
 
     grid_2D<vec3> const& position = cloth.position;  // Storage for the positions of the vertices
-    grid_2D<vec3> const& velocity = cloth.velocity;  // Storage for the normals of the vertices
-    grid_2D<vec3> const& normal = cloth.normal;      // Storage for the velocity of the vertices
+    grid_2D<vec3> const& velocity = cloth.velocity;  // Storage for the velocity of the vertices
+    grid_2D<vec3> const& normal = cloth.normal;      // Storage for the normals of the vertices
     
 
     size_t const N_total = cloth.position.size();       // total number of vertices
@@ -25,7 +25,7 @@ void simulation_compute_force(cloth_structure& cloth, simulation_parameters cons
 
     // Retrieve simulation parameter
     //  The default value of the simulation parameters are defined in simulation.hpp
-    float const K = parameters.K;              // spring stifness
+    float const K = parameters.K;              // spring stiffness
     float const m = parameters.mass_total / N_total; // mass of a particle
     float const mu = parameters.mu;            // damping/friction coefficient
     float const	L0 = 1.0f / (N - 1.0f);        // rest length between two direct neighboring particle
@@ -41,6 +41,11 @@ void simulation_compute_force(cloth_structure& cloth, simulation_parameters cons
         for (int kv = 0; kv < N; ++kv)
             force(ku, kv) += -mu * m * velocity(ku, kv);
 
+
+    // Wind force
+    //for (int ku = 0; ku < N; ++ku)
+    //    for (int kv = 0; kv < N; ++kv)
+    //        ...        
 
     // TO DO: Add spring forces ...
     for (int ku = 0; ku < N; ++ku) {
@@ -87,7 +92,7 @@ void simulation_apply_constraints(cloth_structure& cloth, constraint_structure c
         cloth.position(c.ku, c.kv) = c.position; // set the position to the fixed one
     }
 
-    // To do: apply external constraints
+    // To do: apply external constraints, check constraint_structure.
     // For all vertex:
     //   If vertex is below floor level ...
     //   If vertex is inside collision sphere ...
