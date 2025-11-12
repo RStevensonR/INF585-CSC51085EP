@@ -1,6 +1,5 @@
 # Simulation - Shape Matching
 
-> Path of the scene 07_shapes_and_clothes/a_shape_matching
 
 The objective of this exercise is to implement a Rigid Body simulation using PPD approach and Shape Matching. This approach relates to the publications:
 - [1](https://matthias-research.github.io/pages/publications/MeshlessDeformations_SIG05.pdf) Meshless Deformations Based on Shape Matching. 
@@ -21,7 +20,7 @@ During the simulation, the positions are constrained with three functions:
 
 So far, only `collision_with_walls` is completed, and the other two functions need to be filled.
 
-## Shape Matching
+## ${\color{cyan}\bf{TODO}}$: Shape Matching
 
 First start by implementing the function `shape_matching` for a rigid transformation.
 
@@ -43,11 +42,10 @@ The shape matching approach for rigid deformation consists in:
 
 Once implemented, the new object you create should preserve their shape and collide with the walls.
 
-## Collision Between Particles
+## ${\color{cyan}\bf{TODO}}$: Collision Between Particles
 
 Now add the collision between shapes. To this end, we can consider that each particle is associated to a colliding sphere with a specific radius (`simulation_parameter.collision_radius`). Handling the collision between the object consists in handling collision between two spheres belonging to different shapes. Fill the function `collision_between_particles` in order to handle such collision.
 
-Notes:
 - The treatment of the collision should be handled via positional modification, i.e. projecting collising spheres onto their contact surface.
 - When projecting shapes at high speed, some collisions between shapes can be missed with particles traversing fully through another one. To reduce this effect, you can:
     - Increase the `collision_steps`: number of iterations handling collisions + shape matching at each simulation step.
@@ -56,7 +54,7 @@ Notes:
 
 ![Collision between particles](solparticlecollision.gif)
 
-## Elasticity and Plasticity
+## ${\color{cyan}\bf{TODO}}$: Elasticity and Plasticity
 
 Extend the model to handle a notion of elasticity and plasticity to deformation.
 
