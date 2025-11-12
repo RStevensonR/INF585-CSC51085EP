@@ -26,9 +26,9 @@ First start by implementing the function `shape_matching` for a rigid transforma
 
 *Reminders*:
 
-We consider an object initially defined by a reference shape with vertex positions $p_i^{ref}​$, and barycenter $c^{ref}$.
+We consider an object initially defined by a reference shape with vertex positions $p_i^{ref}​$, and center of mass $c^{ref}$.
 
-We call $p_i$​ the vertex position, and $c$ the barycenter of the current deformed object state.
+We call $p_i$​ the vertex position, and $c$ the center of mass of the current deformed object state.
 
 We call $T$ the transformation matrix such that
 
