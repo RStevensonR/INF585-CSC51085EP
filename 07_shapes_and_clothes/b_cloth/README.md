@@ -1,7 +1,5 @@
 # Simulation - Mass-Springs Cloth
 
-> Path of the scene is 07_shapes_and_clothes/b_clothes
-
 
 A cloth surface is modeled as a mesh where vertices are initially placed on a regular grid.
 So far, only the weight (and a drag/friction force) is applied on the particles.
@@ -13,11 +11,11 @@ Two vertices are constrained to remain fixed (see the variable `positional_const
 
 An automatic check is performed after each numerical integration to detect a possible divergence of the system (`detect_simulation_divergence`). In such case, the simulation is stopped (with an error message on the command line).
 
-## Adding Spring Forces
+## ${\color{cyan}\bf{TODO}}$: Adding Spring Forces
 
 The objective is to implement the network of springs able to model the behavior of a cloth.
 
-*Add the forces related to springs* in the function `compute_forces`
+*Add the forces related to springs* in the function `simulation_compute_force` in `simulation/simulation.cpp`
 - Add first the forces of structural springs only and make sure that you get a plausible behavior before adding more forces. Using wireframe mode with slow time step and coarse mesh (few particles) can help debugging if something is wrong.
 - Then add forces modeled by shearing and bending springs.
 
