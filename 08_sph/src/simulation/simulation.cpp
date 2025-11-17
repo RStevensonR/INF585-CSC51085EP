@@ -51,13 +51,13 @@ void update_pressure(numarray<particle_element>& particles, float rho0, float st
 // Compute the forces and update the acceleration of the particles
 void update_force(numarray<particle_element>& particles, float h, float m, float nu)
 {
-	// gravity
+	// Gravity
     const int N = particles.size();
     for(int i=0; i<N; ++i)
         particles[i].f = vec3{0,-9.81f,0};
+    
     //TO Do
     // For all particles i
-    //   Initialize force considering gravity
     //   Compute F_pressure
     //   Compute F_viscosity
     //   particles[i].f += (F_pressure + F_viscosity)
