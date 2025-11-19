@@ -56,6 +56,7 @@ void update_force(numarray<particle_element>& particles, float h, float m, float
     for(int i=0; i<N; ++i)
         particles[i].f = m * vec3{0,-9.81f,0};
     
+    
     //TO Do
     // For all particles i
     //   Compute F_pressure
