@@ -54,7 +54,7 @@ void update_force(numarray<particle_element>& particles, float h, float m, float
 	// Gravity
     const int N = particles.size();
     for(int i=0; i<N; ++i)
-        particles[i].f = vec3{0,-9.81f,0};
+        particles[i].f = m * vec3{0,-9.81f,0};
     
     //TO Do
     // For all particles i
