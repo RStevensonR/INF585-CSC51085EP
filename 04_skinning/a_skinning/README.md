@@ -86,7 +86,7 @@ $\hat{a} - \hat{b} = (a + \varepsilon a') - (b + \varepsilon b') = a - b + \vare
 
 $\hat{a} \times \hat{b} = (a + \varepsilon a')(b + \varepsilon b') = ab + \varepsilon (a'b + ab')$
 
-$\hat{a}/\hat{b} = \frac{a + \varepsilon a'}{b + \varepsilon b'} = \frac{a}{b} + \varepsilon \frac{a'b - a'b}{b^2}$
+$\hat{a}/\hat{b} = \frac{a + \varepsilon a'}{b + \varepsilon b'} = \frac{a}{b} + \varepsilon \frac{a'b - ab'}{b^2}$
 
 2) Convert unit quaternion $(q_0)$ with translation $(t)$ to  a unit dual quaternion $(\hat{q})$:
 
