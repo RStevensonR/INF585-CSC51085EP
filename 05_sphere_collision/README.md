@@ -3,7 +3,7 @@
 This scene models a set of particles representing spheres falling under gravity. Each particle is associated to the following parameters: position $p$, speed $v$, forces $f$, as well as radius and color.
 The position and speed of each particle is updated through time using a discrete integration in the file `simulation/simulation.cpp`
 
-- Velocity update: $v_{k+1}=v_{k}+\Delta f_k$
+- Velocity update: $v_{k+1}=v_{k}+\Delta t f_k/m$
 - Position update: $p_{k+1} = p_k + \Delta t v_{k+1}$
 
 In the current state of the program, only the gravity is taken into account. But the collision with the cube boundaries and between the sphere need to be implemented. Add the collision detection and response between the spheres and boundary faces of the cube using impulse based response on the sphere velocities.
